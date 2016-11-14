@@ -1,0 +1,48 @@
+<h2>Add New Property</h2>
+
+<%= form_for @property do |f|%>
+
+	<%=f.label :name%><br>
+	<%=f.text_field :name%><br>
+
+	<%#f.hidden_field :type,value: "commercial"%>
+	<%#f.label :type%><br>
+	<%#f.radio_button :type, "residential"%> <!-- Residential  --></t>
+	<%#f.radio_button :type, "commercial"%> <!-- Commercial  --><br>
+
+	<%=f.hidden_field :owner_id, value: current_user.id%><br>
+
+	<%=f.label :built_up_area%><br>
+	<%=f.text_field :built_up_area%><br>
+
+	<%=f.label :is_available%><br>
+	<%=f.radio_button :is_available, "true"%> Yes </t>
+	<%=f.radio_button :is_available, "false"%> No <br>
+	
+	<%=f.label :property_reserve%><br>
+	<%=f.number_field :property_reserve%><br>
+
+	<%=f.label :description%><br>
+	<%=f.text_area :description%><br>
+
+	<%=f.collection_select :country_id, Country.all, :id, :name %><br>
+
+	<%=f.collection_select :state_id, State.all, :id, :name %><br>
+
+	<%=f.collection_select :city_id, City.all, :id, :name %><br>
+
+	<%=f.label :address%><br>
+	<%=f.text_area :address%><br>
+
+	<%=f.label :water_bill_details%><br>
+	<%=f.text_field :water_bill_details%><br>
+
+	<%=f.label :electricity_bill_details%><br>
+	<%=f.text_field :electricity_bill_details%><br>
+
+	<%= f.submit "Add Property"%>
+
+<%end%>	
+
+
+

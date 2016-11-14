@@ -1,0 +1,8 @@
+<h2>Listing User Details</h2>
+
+<h3><%=link_to "Add My Details", new_userdetail_path %></h3>
+<ol>
+	<%@userdetails.each do |userdetail|%>
+		<li><%=userdetail.name%></li>
+	<%end%>	
+</ol>

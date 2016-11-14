@@ -1,0 +1,28 @@
+<h2>Add Further datails</h2>
+
+<%= form_for @userdetail do |f|%>
+
+	<%=f.label :name%><br>
+	<%=f.text_field :name%><br>
+
+	<%=f.label :mobile%><br>
+	<%=f.text_field :mobile%><br>
+
+	<%=f.label :email%><br>
+	<%=f.email_field :email%><br>
+
+	<%=f.label :date_of_birth%><br>
+	<%=f.date_select :date_of_birth%><br>
+
+	<%=f.label :pan_no%><br>
+	<%=f.text_field :pan_no%><br>
+
+	<%=f.label :role%><br>
+	<%=f.radio_button :role, "owner"%> Owner <br>
+	<%=f.radio_button :role, "tenant"%> Tenant<br>
+
+	<%=f.hidden_field :user_id, value: current_user.id%><br>
+
+	<%=f.submit "Add my details"%><br>
+
+<%end%>	
