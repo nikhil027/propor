@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  task_type: MyString
+  title: MyString
+  description: MyText
+  category: MyString
+  proprty_id: 1
+  status: MyString
+  due_date: 2016-11-14
+  priority: MyString
+  user_id: 1
+
+two:
+  task_type: MyString
+  title: MyString
+  description: MyText
+  category: MyString
+  proprty_id: 1
+  status: MyString
+  due_date: 2016-11-14
+  priority: MyString
+  user_id: 1

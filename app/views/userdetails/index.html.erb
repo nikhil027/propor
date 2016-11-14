@@ -1,8 +1,14 @@
-<h2>Listing User Details</h2>
+<h2>My Profile</h2>
 
-<h3><%=link_to "Add My Details", new_userdetail_path %></h3>
-<ol>
+<h3><%#link_to "Edit My Details", edit_userdetail_path(@userdetail.id) %></h3>
+<ul>
 	<%@userdetails.each do |userdetail|%>
-		<li><%=userdetail.name%></li>
+		<li><b>Name: </b><%=userdetail.name%></li><br>
+		<li><b>Email: </b><%=userdetail.email%></li><br>
+		<li><b>Mobile No: </b><%=userdetail.mobile%></li><br>
+		<li><b>DOB: </b><%=userdetail.date_of_birth%></li><br>
+		<li><b>Role: </b><%=userdetail.role%></li><br>
+		<li><b>PAN No: </b><%=userdetail.pan_no%></li><br>
+
 	<%end%>	
-</ol>
+</ul>

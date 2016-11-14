@@ -2,7 +2,7 @@ class PropertiesController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
-		@properties = Property.all 
+		@properties = Property.all.where('owner_id = ?',current_user.id) 
 	end
 
 	def show
@@ -21,6 +21,27 @@ class PropertiesController < ApplicationController
 		 	render action: "new"
 		 end
 	end
+
+	def edit
+		@property = Property.find(params[:id])
+	end
+
+	def update
+		@property = Property.find(params[:id])
+		if @property.update_attributes(property_params)
+			redirect_to properties_path
+		else
+			render action: "edit"
+		end
+	end
+
+	def destroy
+		@property = Property.find(params[:id])
+		@property.delete
+		redirect_to properties_path
+	end
+	
+
 
 private
 	def property_params

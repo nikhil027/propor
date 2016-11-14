@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161112075748) do
+ActiveRecord::Schema.define(version: 20161114065930) do
 
   create_table "cities", force: :cascade do |t|
     t.integer  "state_id"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20161112075748) do
 
   create_table "properties", force: :cascade do |t|
     t.string   "name"
-    t.string   "type"
+    t.string   "property_type"
     t.integer  "owner_id"
     t.float    "built_up_area"
     t.boolean  "is_available"
