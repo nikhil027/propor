@@ -1,6 +1,9 @@
 <h2>My Profile</h2>
-
-<h3><%#link_to "Edit My Details", edit_userdetail_path(@userdetail.id) %></h3>
+<%if @userdetail.new_record?%>
+	<h3><%=link_to "Add My Details", new_userdetail_path%></h3>
+<%else%>
+	<h3><%=link_to "Edit My Details", edit_userdetail_path(@userdetail.id) %></h3>
+<%end%>	
 <ul>
 	<%@userdetails.each do |userdetail|%>
 		<li><b>Name: </b><%=userdetail.name%></li><br>
