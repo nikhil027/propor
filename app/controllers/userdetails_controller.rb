@@ -1,5 +1,6 @@
 class UserdetailsController < ApplicationController
 	before_action :authenticate_user!
+	load_and_authorize_resource
 	
 	def index
 		@userdetails = Userdetail.all.where('user_id = ?',current_user.id) 
@@ -7,6 +8,10 @@ class UserdetailsController < ApplicationController
 
 	def new
 		@userdetail = Userdetail.new
+	end
+
+	def show
+		@userdetail = Userdetail.find(params[:id])
 	end
 
 	def create

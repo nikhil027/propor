@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161114065930) do
+ActiveRecord::Schema.define(version: 20161120161422) do
 
   create_table "cities", force: :cascade do |t|
     t.integer  "state_id"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 20161114065930) do
 
   create_table "countries", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "permissions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -44,11 +51,43 @@ ActiveRecord::Schema.define(version: 20161114065930) do
     t.datetime "updated_at",               null: false
   end
 
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "states", force: :cascade do |t|
     t.integer  "country_id"
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "task_categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "task_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string   "task_type"
+    t.string   "title"
+    t.text     "description"
+    t.string   "category"
+    t.integer  "property_id"
+    t.date     "due_date"
+    t.string   "status"
+    t.string   "priority"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "user_infos", force: :cascade do |t|

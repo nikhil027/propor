@@ -1,8 +1,9 @@
 class PropertiesController < ApplicationController
 	before_action :authenticate_user!
+	load_and_authorize_resource
 
 	def index
-		@properties = Property.all.where('owner_id = ?',current_user.id) 
+		@properties = Property.all  #.where('owner_id = ?',current_user.id) 
 	end
 
 	def show

@@ -1,0 +1,14 @@
+<h2><%=@task.title%></h2>
+
+<ul>
+	<li><b>Title: </b><%=@task.title%></li><br>
+	<li><b>Description: </b><%=@task.description%></li><br>
+	<li><b>Type: </b><%=@task.task_type%></li><br>
+	<li><b>Category: </b><%=@task.category%></li><br>
+	<li><b>Property: </b><%=@task.property.name%></li><br>
+	<li><b>Due Date: </b><%=@task.due_date%></li><br>
+	<li><b>Status: </b><%=@task.status%></li><br>
+	<li><b>Priority: </b><%=@task.priority%></li><br>
+</ul>
+
+<h3><%=link_to "Update this task", edit_task_path(@task)%> || <%=link_to "Back", :back%> || <%= link_to "Delete Task", task_path(@task.id), method: :delete,data: {confirm: "Are You Sure??"}%></h3>

@@ -9,19 +9,24 @@
 <body>
 
 <% if user_signed_in? %>
+	
  Welcome <%= current_user.email %>
   <%= link_to "Account Setting", edit_user_registration_path%> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete%>
+  <%= link_to "Logout", destroy_user_session_path, method: :delete%> </br><br>	
+
+<b><%= link_to "My Profile", userdetails_path%></b><t>||<t>
+<b><%= link_to "My Properties", properties_path %></b>||<t>
+<b><%= link_to "My Tasks", tasks_path %></b>
+
 <%else%>
   <%= link_to "Login", new_user_session_path %> |
-  <%= link_to "Register", new_user_registration_path %>
+  <%= link_to "Register", new_user_registration_path %> |
 <%end%>
 
 <%= notice %>
 <%= alert %><br>
-<br>
-<b><%= link_to "My Profile", userdetails_path%></b><t>||<t>
-<b><%= link_to "My Properties", properties_path %></b>
+
+
 
 <%= yield %>
 
