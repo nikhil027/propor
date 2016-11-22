@@ -6,4 +6,9 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do 
   	redirect_to root_path, alert: "You are not authorized"
   end
+
+  
+
+
+  
 end

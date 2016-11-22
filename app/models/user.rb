@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 	has_many :permissions
 	has_many :roles, through: :permissions
 
-	has_one :user_info
+	has_one :userdetail
 	has_many :tasks
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
