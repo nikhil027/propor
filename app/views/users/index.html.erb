@@ -1,0 +1,9 @@
+<h2>Listing Users</h2>
+
+<%= link_to "Add User", new_user_path%>
+
+<ol>
+	<%@users.each do |user|%>
+		<li><%= user.email %> - <%=user.roles.pluck(:name).join(",")%> - <%= link_to "Edit", edit_user_path(user.id)%> - <%= link_to "Remove User", user_path(user.id), method: :delete, data:{confirm: "Are You Sure"}%></li>
+	<%end%>
+</ol>
