@@ -14,7 +14,7 @@
 	<%end%>
 
 	<%=f.label :task_type%><br>
-	<%=f.select :task_type, ["to-do","resident request","owner request","contact request"], prompt:"Select Task Type"%><br>
+	<%=f.collection_select :task_type, TaskType.all, :id, :name, prompt: "Select Task Type"%><br>
 
 	<%=f.label :title%><br>
 	<%=f.text_field :title%><br>
@@ -23,7 +23,7 @@
 	<%=f.text_area :description%><br>
 
 	<%=f.label :category%><br>
-	<%=f.select :category, ["Complaint","Feedback","Suggestion","Genral Inquiry","Maintainance Request","other"], prompt:"Select Task Category"%><br>
+	<%=f.collection_select :category, TaskCategory.all, :id, :name, prompt: "Select Task Category"%><br>
 
 	<%=f.label :property_id%><br>
 	<%=f.collection_select :property_id, Property.all, :id, :name, prompt: "Select Property" %><br>
