@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 	load_and_authorize_resource
 
 	def index
-		@users = User.all
+		@users = User.where('created_by = ?',current_user.id)
 	end
 
 	def new
@@ -12,9 +12,12 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
+		#if current_user.roles.find_by_name("admin") 
+			@user.created_by = current_user.id
+		#end
 		if @user.save
 			user = @user
-			Notification.send_login_credentials(user).deliver 
+			#Notification.send_login_credentials(user).deliver 
 			redirect_to users_path, notice: "User Succesfully Created and Login Credentials sent"
 		else
 			render action: "new"
@@ -43,7 +46,7 @@ class UsersController < ApplicationController
 private
 
 	def user_params
-		params[:user].permit(:email,:password, role_ids:[])
+		params[:user].permit(:email,:password, :created_by, role_ids:[])
 	end
 
 end

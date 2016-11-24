@@ -10,13 +10,19 @@
 
 <% if user_signed_in? %>
 Welcome <%= current_user.email %>
+
+<%if current_user.sign_in_count == 0
+  	redirect_to edit_user_registrations_path
+end%>
 	
   <%= link_to "Account Setting", edit_user_registration_path%> |
   <%= link_to "Logout", destroy_user_session_path, method: :delete%> </br><br>	
 
 <b><%= link_to "My Profile", userdetails_path%></b><t>||<t>
 <b><%= link_to "My Properties", properties_path %></b>||<t>
-<b><%= link_to "My Tasks", tasks_path %></b> 
+<b><%= link_to "My Tasks", tasks_path %></b>||<t>
+<b><%= link_to "My Tenants", users_path %></b>
+
 
 <%else%>
   <%= link_to "Login", new_user_session_path %> |

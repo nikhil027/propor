@@ -8,12 +8,11 @@ class Ability
     if user.role? "admin"
         can :manage , :all
     elsif user.role? "owner"
-        can [:create,:read,:update,:destroy], Property do |property| 
-            property.try(:owner_id) == user
-        end
+        can :manage, Property
         can [:create,:read,:update,:destroy], Task do |task| 
             task.try(:user) == user
         end
+        can :manage, User
         can :read, :dashboard
     elsif user.role? "tenant"
         can :read, Property
