@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :users
   end
 
+  resources :contracts
   resources :dashboard
   resources :tasks
   resources :properties

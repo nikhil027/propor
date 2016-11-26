@@ -1,0 +1,20 @@
+<h2>Edit Contract</h2>
+
+<%= form_for @contract do |f|%>
+
+	<%=f.label :property_id%><br>
+	<%=f.collection_select :property_id , Property.where('owner_id = ?',current_user.id), :id, :name, prompt:"Select Property"%><br>
+
+	<%=f.label :tenant_id%><br>
+	<%=f.collection_select :tenant_id , User.where('created_by = ?',current_user.id), :id, :email, prompt:"Select Tenant"%><br>
+
+	<%=f.label :start_date%><br>
+	<%=f.date_select :start_date%><br>
+
+	<%=f.label :end_date%><br>
+	<%=f.date_select :end_date%><br><br>
+
+	<%=f.submit "Edit Contract"%><br>
+
+
+<%end%>	
