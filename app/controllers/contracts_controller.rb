@@ -1,4 +1,7 @@
 class ContractsController < ApplicationController
+	before_action :authenticate_user!
+	load_and_authorize_resource
+
 	def index
 		if current_user.roles.pluck(:name).include?("admin")
 			@contracts = Contract.all

@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(user)
   	if user.sign_in_count == 1
   		edit_user_registration_path
+      #new_userdetail_path
   	else
   		root_path
   	end

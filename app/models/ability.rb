@@ -9,17 +9,15 @@ class Ability
         can :manage , :all
     elsif user.role? "owner"
         can :manage, Property
-        can [:create,:read,:update,:destroy], Task do |task| 
-            task.try(:user) == user
-        end
-        can :manage, User
+        can :manage, Task
+        can :manage, User, Contract
         can :read, :dashboard
     elsif user.role? "tenant"
         can :read, Property
-        can [:create,:read,:update,:destroy], Task do |task| 
-            task.try(:user) == user
-        end
+        can :manage, Task
+        can :manage, Userdetail
         can :read, :dashboard
+        can :read, :contracts
     end
 
         
