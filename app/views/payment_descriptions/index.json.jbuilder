@@ -1,0 +1,1 @@
+json.array! @payment_descriptions, partial: 'payment_descriptions/payment_description', as: :payment_description

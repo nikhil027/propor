@@ -1,0 +1,1 @@
+json.array! @payment_options, partial: 'payment_options/payment_option', as: :payment_option
