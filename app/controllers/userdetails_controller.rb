@@ -38,7 +38,7 @@ class UserdetailsController < ApplicationController
 	private
 
 	def userdetail_params
-		params[:userdetail].permit(:name,:email,:mobile,:role,:pan_no,:user_id,:date_of_birth)
+		params[:userdetail].permit(:name,:email,:mobile,:pan_no,:user_id,:date_of_birth)
 	end
 
 end

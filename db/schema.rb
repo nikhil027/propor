@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161127121542) do
+ActiveRecord::Schema.define(version: 20161129121210) do
 
   create_table "cities", force: :cascade do |t|
     t.integer  "state_id"
@@ -50,12 +50,14 @@ ActiveRecord::Schema.define(version: 20161127121542) do
   end
 
   create_table "payments", force: :cascade do |t|
-    t.integer  "owner_id"
-    t.integer  "tenant_id"
     t.string   "reference_number"
     t.date     "payment_date"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "contract_id"
+    t.integer  "payment_description"
+    t.integer  "payment_option"
+    t.float    "amount"
   end
 
   create_table "permissions", force: :cascade do |t|

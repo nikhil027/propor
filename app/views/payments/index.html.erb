@@ -5,8 +5,10 @@
 <table>
   <thead>
     <tr>
-      <th>Owner</th>
-      <th>Tenant</th>
+      <th>Contract</th>
+      <th>Amount</th>
+      <th>Payment Description</th>
+      <th>Payment Option</th>
       <th>Reference number</th>
       <th>Payment date</th>
       <th colspan="3"></th>
@@ -16,8 +18,10 @@
   <tbody>
     <% @payments.each do |payment| %>
       <tr>
-        <td><%= payment.owner_id %></td>
-        <td><%= payment.tenant_id %></td>
+        <td><%= payment.contract_id %></td>
+        <td><%= payment.amount %></td>
+        <td><%= payment.payment_description %></td>
+        <td><%= payment.payment_options.pluck(:name)%></td>
         <td><%= payment.reference_number %></td>
         <td><%= payment.payment_date %></td>
         <td><%= link_to 'Show', payment %></td>

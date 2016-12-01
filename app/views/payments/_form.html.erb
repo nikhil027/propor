@@ -13,12 +13,21 @@
 
 
   <div class="field">
-    <%= f.label :owner_id %><br>
-    <%= f.number_field :owner_id %>
+    <%= f.label :contract_id %><br>
+    <%=f.select :contract_id, options_for_select(Contract.where('user_id = ? OR tenant_id = ?',current_user.id,current_user.id).map{ |s| [s.property.name, s.id] }), prompt: "Select Contract"%>
+    <%#= f.collection_select :contract_id, Contract.where('user_id = ? OR tenant_id = ?',current_user.id,current_user.id), :id, :id.properties.pluck(:name), prompt: "Select Contract" %>
   </div>
   <div class="field">
-    <%= f.label :tenant_id %><br>
-    <%= f.number_field :tenant_id %>
+    <%= f.label :amount %><br>
+    <%= f.number_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :payment_description %><br>
+    <%= f.collection_select :payment_description, PaymentDescription.all, :id, :display_info, prompt: "Select Payment Description" %>
+  </div>
+  <div class="field">
+    <%= f.label :payment_option %><br>
+    <%= f.collection_select :payment_option,PaymentOption.all, :id, :name, prompt: "Select Payment Option" %>
   </div>
   <div class="field">
     <%= f.label :reference_number %><br>

@@ -14,12 +14,14 @@ class Ability
         end
         can :manage, User
         can :read, :dashboard
+        can :manage, Userdetail
     elsif user.role? "tenant"
         can :read, Property
         can [:create,:read,:update,:destroy], Task do |task| 
             task.try(:user) == user
         end
         can :read, :dashboard
+        can :manage, Userdetail
     end
 
         

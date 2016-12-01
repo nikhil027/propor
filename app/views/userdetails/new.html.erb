@@ -17,10 +17,6 @@
 	<%=f.label :pan_no%><br>
 	<%=f.text_field :pan_no%><br>
 
-	<%=f.label :role%><br>
-	<%=f.radio_button :role, "owner"%> Owner <br>
-	<%=f.radio_button :role, "tenant"%> Tenant<br>
-
 	<%=f.hidden_field :user_id, value: current_user.id%><br>
 
 	<%=f.submit "Add my details"%><br>
