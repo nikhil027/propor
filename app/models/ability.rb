@@ -13,16 +13,17 @@ class Ability
         can :manage, User, Contract
         can :read, :dashboard
         can :manage, Userdetail
+        can :manage, Payment
     elsif user.role? "tenant"
         can :read, Property
         can :manage, Task
         can :manage, Userdetail
         can :read, :dashboard
-<<<<<<< HEAD
+
         can :read, :contracts
-=======
+
         can :manage, Userdetail
->>>>>>> payments
+        can :manage, Payment
     end
 
         
