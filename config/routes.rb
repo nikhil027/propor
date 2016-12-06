@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :payments
+  resources :payments
+  resources :payment_options
+  resources :payment_descriptions
+  resources :payments
   get 'dashboard/index'
 
   devise_for :users

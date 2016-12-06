@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  owner_id: 1
+  tenant_id: 1
+  reference_number: MyString
+  payment_date: 2016-11-27
+
+two:
+  owner_id: 1
+  tenant_id: 1
+  reference_number: MyString
+  payment_date: 2016-11-27

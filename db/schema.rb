@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161124095957) do
+ActiveRecord::Schema.define(version: 20161202132011) do
 
   create_table "cities", force: :cascade do |t|
     t.integer  "state_id"
@@ -34,6 +34,30 @@ ActiveRecord::Schema.define(version: 20161124095957) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "payment_descriptions", force: :cascade do |t|
+    t.string   "payment_type"
+    t.string   "payment_description"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  create_table "payment_options", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.string   "reference_number"
+    t.date     "payment_date"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "contract_id"
+    t.float    "amount"
+    t.integer  "payment_desscription_id"
+    t.integer  "payment_option_id"
   end
 
   create_table "permissions", force: :cascade do |t|
@@ -98,17 +122,6 @@ ActiveRecord::Schema.define(version: 20161124095957) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "user_infos", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "name"
-    t.string   "mobile"
-    t.date     "date_of_birth"
-    t.string   "role"
-    t.string   "taxpayer_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
   end
 
   create_table "userdetails", force: :cascade do |t|
