@@ -20,8 +20,8 @@
       <tr>
         <td><%= payment.contract_id %></td>
         <td><%= payment.amount %></td>
-        <td><%= payment.payment_description %></td>
-        <td><%= payment.payment_options.pluck(:name)%></td>
+        <td><%= payment.payment_description.payment_type %></td>
+        <td><%= payment.payment_option%></td>
         <td><%= payment.reference_number %></td>
         <td><%= payment.payment_date %></td>
         <td><%= link_to 'Show', payment %></td>
