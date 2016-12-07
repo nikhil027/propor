@@ -52,6 +52,6 @@ class ContractsController < ApplicationController
 	private
 
 	def contract_params
-		params[:contract].permit(:property_id,:user_id,:tenant_id,:start_date,:end_date)
+		params[:contract].permit(:property_id,:user_id,:tenant_id,:start_date,:end_date,:document)
 	end
 end

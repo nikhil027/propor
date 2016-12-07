@@ -1,0 +1,13 @@
+<div class="container">
+<div class="row">
+<h2><%=@contract.property.name%></h2>
+<div class="col-md-6">
+<h3>Owner: <%=@contract.user.userdetail.name%></h3>
+<h3>Tenant: <%=@contract.tenant.userdetail.name%></h3>
+<p>The contract for the property <b><%=@contract.property.name%></b> between the landlord <%=@contract.user.userdetail.name%> as the <b>First Party</b> and the tenant <%=@contract.tenant.userdetail.name%> as the <b>second party</b> for a period from <%=@contract.start_date%> upto <%=@contract.end_date%></p>
+</div><!-- col 6 for text ends -->
+<div class="col-md-6 col-md-pull-right">
+<%= image_tag(@contract.document.url) if @contract.document %>
+</div> <!-- col 6 for image ends -->
+</div> <!-- Row ends -->
+</div> <!-- Container ends -->
