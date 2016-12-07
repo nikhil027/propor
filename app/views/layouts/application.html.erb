@@ -14,9 +14,11 @@
 <body>
 
 <% if user_signed_in? %>
-<div class="container">
+
 
 <nav class="navbar navbar-default">
+
+
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -73,7 +75,7 @@
 
 	
 <%else%>
-<div class="container">
+
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -96,15 +98,40 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+<%end%>
+
+<div class="container">
+<%if notice%>
+<div class="alert alert-success">
+  <%= notice %>
 </div>
 <%end%>
 
-<%= notice %>
-<%= alert %><br>
+<%if alert%>
+<div class="alert alert-danger">
+  <%= alert %>
+</div>
+<%end%>
 
 
 
 <%= yield %>
+</div>
+<hr>
+  <!-- footer begins here -->
+
+    <div class="row">
+    
+        <div class="col-md-6">
+            <p>Copyright @ 2016</p>
+        </div>
+
+        <div class="col-md-6">
+            <p class="text-right">Powered by <a href="www.getbootstrap.com"> Bootstrap</a></p>
+        </div>
+    </div><!-- footer ends here --> 
+
 </div> <!-- End of Container -->
 </body>
 </html>

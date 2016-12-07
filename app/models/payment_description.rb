@@ -1,5 +1,5 @@
 class PaymentDescription < ActiveRecord::Base
-	belongs_to :payment, class: 'Payment'
+	has_many :payments
 
 	def display_info
 		self.payment_type + "--- "+" " + self.payment_description 

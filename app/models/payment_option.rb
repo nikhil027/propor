@@ -1,3 +1,3 @@
 class PaymentOption < ActiveRecord::Base
-	belongs_to :payment
+	has_many :payments
 end
