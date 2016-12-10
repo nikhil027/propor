@@ -1,12 +1,13 @@
 class Task < ActiveRecord::Base
 	
-	has_one :task_type
+	belongs_to :task_type
+	belongs_to :task_category
 	belongs_to :userdetail
 	belongs_to :property
 
-	validates_presence_of :title,:description,:task_type,:category,:property_id,:user_id,:due_date,:status,:priority
-	validate :check_due_date
-	validate :check_status
+	#validates_presence_of :title,:description,:task_type,:task_category,:property_id,:user_id,:due_date,:status,:priority
+	#validate :check_due_date
+	#validate :check_status
 
 	private
 

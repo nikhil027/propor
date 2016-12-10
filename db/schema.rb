@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161208040058) do
+ActiveRecord::Schema.define(version: 20161210063035) do
 
   create_table "cities", force: :cascade do |t|
     t.integer  "state_id"
@@ -97,17 +97,17 @@ ActiveRecord::Schema.define(version: 20161208040058) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string   "task_type"
     t.string   "title"
     t.text     "description"
-    t.string   "category"
     t.integer  "property_id"
     t.date     "due_date"
     t.string   "status"
     t.string   "priority"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "task_type_id"
+    t.integer  "task_category_id"
   end
 
   create_table "userdetails", force: :cascade do |t|

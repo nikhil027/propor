@@ -3,8 +3,8 @@
 <ul>
 	<li><b>Title: </b><%=@task.title%></li><br>
 	<li><b>Description: </b><%=@task.description%></li><br>
-	<li><b>Type: </b><%=@task.task_type%></li><br>
-	<li><b>Category: </b><%=@task.category%></li><br>
+	<li><b>Type: </b><%=@task.task_type.name%></li><br>
+	<li><b>Category: </b><%=@task.task_category.name%></li><br>
 	<li><b>Property: </b><%=@task.property.name%></li><br>
 	<li><b>Due Date: </b><%=@task.due_date%></li><br>
 	<li><b>Status: </b><%=@task.status%></li><br>

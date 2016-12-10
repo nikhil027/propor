@@ -22,8 +22,8 @@
 	<%=f.label :description%><br>
 	<%=f.text_area :description%><br>
 
-	<%=f.label :category%><br>
-	<%=f.collection_select :category, TaskCategory.all, :id, :name, prompt: "Select Task Category"%><br>
+	<%=f.label :task_category%><br>
+	<%=f.collection_select :task_category, TaskCategory.all, :id, :name, prompt: "Select Task Category"%><br>
 
 	<%=f.label :property_id%><br>
 	<%=f.collection_select :property_id, Property.all, :id, :name, prompt: "Select Property" %><br>
