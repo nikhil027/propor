@@ -1,11 +1,36 @@
-<h2>My Profile</h2>
-<%if @userdetails.empty? %>
-	<h3><%=link_to "Add My Details", new_userdetail_path%></h3>
-<%end%>
-<ul>
-	<%@userdetails.each do |userdetail|%>
-		<li><b>Name: </b><%=link_to userdetail.name, userdetail_path(userdetail.id)%></li><br>
-		
+<div class="row">
+<div class="page-header">
+<h2>Profile
+<div class="pull-right">
+	<%if !@userdetail %>
+		<%= link_to 'Add My Details', new_userdetail_path, class: "btn btn-primary" %>
+	<%else%>
+		<%= link_to 'Edit My Details', edit_userdetail_path(@userdetail.id), class: "btn btn-primary" %>
 	<%end%>	
+</div> <!-- button ends -->
+</h2>
+</div><!-- pageheader ends -->
+</div> <!-- row ends -->
+<hr>
+
+<div class="row">
+<div class="col-md-8">
+<%if @userdetail%>
+<ul>
+	<%#@userdetails.each do |userdetail|%>
+		<li><b>Name: </b><%=@userdetail.try(:name)%></li><br>
+		<li><b>Email: </b><%=@userdetail.try(:email)%></li><br>
+		<li><b>Mobile No: </b><%=@userdetail.try(:mobile)%></li><br>
+		<li><b>DOB: </b><%=@userdetail.try(:date_of_birth)%></li><br>
+		<li><b>Role: </b><%=@userdetail.user.roles.pluck(:name).join(",").capitalize %></li><br>
+		<li><b>PAN No: </b><%=@userdetail.try(:pan_no)%></li><br>
+	<%#end%>	
 </ul>
 
+</div> <!-- end of col md 8 -->
+<div class="col-md-4">
+	<%=image_tag (@userdetail.profile_picture.url) if @userdetail.profile_picture %>
+</div>
+</div> <!-- end of row -->
+
+<%end%>

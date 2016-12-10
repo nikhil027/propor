@@ -1,5 +1,7 @@
 class Userdetail < ActiveRecord::Base
 	
+	mount_uploader :profile_picture, PropertyPicturesUploader
+	mount_uploader :id_proof, IdProofUploader
 	has_many :properties
 	belongs_to :user
 	validates_presence_of :name, :mobile, :user_id, :pan_no

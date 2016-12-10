@@ -1,11 +1,20 @@
-<h2>My Contracts</h2>
-
-<h3><%=link_to "Add new contract", new_contract_path%></h3>
+<div class="row">
+<div class="page-header">
+<h2>Contracts 
+<div class="pull-right">
+<%= link_to 'New Contract', new_payment_path, class: "btn btn-primary" %>
+</div> <!-- button ends -->
+</h2>
+</div><!-- pageheader ends -->
+</div> <!-- row ends -->
+<hr>
+<div class="row"> 
 <div class="panel panel-default">
   <!-- Default panel contents -->
   <%if !@contracts.nil?%>
   <!-- Table -->
-  <table class="table">
+ 
+  <table class="table table-bordered table-hover">
   	<thead>
 		<tr>
 			<th>Sl No</th>
@@ -30,12 +39,14 @@
 			<td><%=contract.end_date%></td>
 			<td><%=link_to "Show", contract_path(contract.id)%></td>
 			<td><%=link_to "Edit", edit_contract_path(contract.id)%></td>
-			<td><%=link_to "Destroy", contract_path(contract.id), method: :delete, data: {confirm: "Are you sure ???"}%></td>
+			<td><%=link_to "Destroy", contract_path(contract.id), method: :delete, data: {confirm: "Are you sure ???"}%><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
 		</tr>
 		<%end%>
 	</tbody>
   </table>
+  </div> <!-- row of table ends -->
 </div>
+
 
 
 

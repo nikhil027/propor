@@ -17,13 +17,12 @@
 	<%=f.label :pan_no%><br>
 	<%=f.text_field :pan_no%><br>
 
-<<<<<<< HEAD
-=======
-	
+	<%=f.label :profile_picture%><br>
+	<%=f.file_field :profile_picture%><br>
 
-	<%=f.hidden_field :user_id, value: current_user.id%><br>
+	<%=f.label :id_proof%><br>
+	<%=f.file_field :id_proof%><br>
 
->>>>>>> payments
 	<%=f.submit "Add my details"%><br>
 
 <%end%>	

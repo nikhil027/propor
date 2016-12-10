@@ -3,7 +3,7 @@ class UserdetailsController < ApplicationController
 	load_and_authorize_resource
 	
 	def index
-		@userdetails = Userdetail.where('user_id = ?',current_user.id) 
+		@userdetail = Userdetail.find_by_user_id(current_user.id) #.where('user_id = ?',current_user.id) 
 	end
 
 	def new
@@ -18,7 +18,7 @@ class UserdetailsController < ApplicationController
 		@userdetail = Userdetail.new(userdetail_params)
 		@userdetail.user_id = current_user.id
 		if @userdetail.save
-			redirect_to userdetails_path
+			redirect_to userdetail_path(@userdetail.id)
 		else
 			render action: "new"
 		end
@@ -31,16 +31,16 @@ class UserdetailsController < ApplicationController
 	def update
 		@userdetail = Userdetail.find(params[:id])	
 		if @userdetail.update_attributes(userdetail_params)
-			redirect_to userdetails_path
+			redirect_to userdetail_path(@userdetail.id)
 		else
-			render action: "new"
+			render action: "edit"
 		end
 	end
 
 	private
 
 	def userdetail_params
-		params[:userdetail].permit(:name,:email,:mobile,:pan_no,:user_id,:date_of_birth)
+		params[:userdetail].permit(:name,:email,:mobile,:pan_no,:user_id,:date_of_birth,:profile_picture,:id_proof)
 	end
 
 end

@@ -1,6 +1,7 @@
 class Property < ActiveRecord::Base
 
-	
+	mount_uploaders :property_documents, PropertyDocumentsUploader
+	mount_uploaders :property_pictures, PropertyPicturesUploader
 	belongs_to :userdetail
 	belongs_to :owner, class_name: 'User'
 	has_many :tasks

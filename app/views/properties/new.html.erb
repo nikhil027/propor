@@ -42,6 +42,12 @@
 	<%=f.label :electricity_bill_details%><br>
 	<%=f.text_field :electricity_bill_details%><br>
 
+	<%=f.label :documents%><br>
+	<%=f.file_field :documents , multiple: true %><br>
+
+	<%=f.label :pictures%><br>
+	<%=f.file_field :pictures , multiple: true %><br>
+
 	<%= f.submit "Add Property"%>
 
 <%end%>	

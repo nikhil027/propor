@@ -1,17 +1,34 @@
-<h2>My Profile</h2>
+<div class="row">
+<div class="page-header">
+<h2><%=@userdetail.name%>'s Profile
+<div class="pull-right">
 <%if @userdetail.new_record? %>
-	<h3><%=link_to "Add My Details", new_userdetail_path%></h3>
+	<%=link_to "Add My Details", new_userdetail_path, class:"btn btn-primary"%>
 <%else%>
-	<h3><%=link_to "Edit My Details", edit_userdetail_path(@userdetail.id) %></h3>
+	<%=link_to "Edit My Details", edit_userdetail_path(@userdetail.id), class:"btn btn-primary" %>
 <%end%>	
+</div> <!-- button ends -->
+</h2>
+</div><!-- pageheader ends -->
+</div> <!-- row ends -->
+<hr>
+
+<div class="row">
+<div class="col-md-6">
 <ul>
-	<%#@userdetails.each do |userdetail|%>
 		<li><b>Name: </b><%=@userdetail.name%></li><br>
 		<li><b>Email: </b><%=@userdetail.email%></li><br>
 		<li><b>Mobile No: </b><%=@userdetail.mobile%></li><br>
 		<li><b>DOB: </b><%=@userdetail.date_of_birth%></li><br>
 		<li><b>Role: </b><%=@userdetail.user.roles.pluck(:name).join(",").capitalize %></li><br>
 		<li><b>PAN No: </b><%=@userdetail.pan_no%></li><br>
-
-	<%#end%>	
+	
 </ul>
+</div> <!-- col-6 ends -->
+<div class="col-md-6">
+	<%=image_tag (@userdetail.profile_picture.url) if @userdetail.profile_picture%>	
+</div>
+
+</div><!-- row ends -->
+
+<%=link_to "Download ID proof", @userdetail.id_proof.url, class:"btn btn-primary"%>

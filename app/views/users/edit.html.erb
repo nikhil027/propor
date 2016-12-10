@@ -8,8 +8,20 @@
 	<%=f.label :password%><br>
 	<%=f.text_field :password%><br>
 
+<%if current_user.roles.find_by_name("admin")%>	
+
 	<%= f.label :roles%><br>
 	<%=f.collection_check_boxes :role_ids, Role.all,:id, :name %><br><br>
+
+<%elsif current_user.roles.find_by_name("owner") %>
+
+	<%= f.label :roles%><br>
+	<%= f.collection_check_boxes :role_ids, Role.where('name = ?',"tenant"),:id, :name %><br><br>
+
+<%end%>	
+
+	<%=f.label :identity_document%><br>
+	<%=f.file_field :identity_document%><br>
 
 	<%=f.submit "Edit User"%>
 

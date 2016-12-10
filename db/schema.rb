@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206175231) do
+ActiveRecord::Schema.define(version: 20161208040058) do
 
   create_table "cities", force: :cascade do |t|
     t.integer  "state_id"
@@ -53,12 +53,12 @@ ActiveRecord::Schema.define(version: 20161206175231) do
   create_table "payments", force: :cascade do |t|
     t.string   "reference_number"
     t.date     "payment_date"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.integer  "contract_id"
     t.float    "amount"
-    t.integer  "payment_desscription_id"
     t.integer  "payment_option_id"
+    t.integer  "payment_description_id"
   end
 
   create_table "permissions", force: :cascade do |t|
@@ -68,23 +68,8 @@ ActiveRecord::Schema.define(version: 20161206175231) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "properties", force: :cascade do |t|
-    t.string   "name"
-    t.string   "property_type"
-    t.integer  "owner_id"
-    t.float    "built_up_area"
-    t.boolean  "is_available"
-    t.float    "property_reserve"
-    t.text     "description"
-    t.integer  "country_id"
-    t.integer  "state_id"
-    t.integer  "city_id"
-    t.text     "address"
-    t.string   "water_bill_details"
-    t.string   "electricity_bill_details"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-  end
+# Could not dump table "properties" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -132,8 +117,10 @@ ActiveRecord::Schema.define(version: 20161206175231) do
     t.string   "mobile"
     t.date     "date_of_birth"
     t.string   "pan_no"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "profile_picture"
+    t.string   "id_proof"
   end
 
   create_table "users", force: :cascade do |t|

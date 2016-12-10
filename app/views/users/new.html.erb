@@ -6,7 +6,7 @@
 	<%=f.email_field :email%><br>
 
 	<%=f.label :password%><br>
-	<%=f.text_field :password%><br>
+	<%=f.text_field :password%><br>	
 
 <%if current_user.roles.find_by_name("admin")%>	
 
@@ -18,7 +18,7 @@
 	<%= f.label :roles%><br>
 	<%= f.collection_check_boxes :role_ids, Role.where('name = ?',"tenant"),:id, :name %><br><br>
 
-<%end%>		
+<%end%>	
 
 	<%=f.submit "Add User"%>
 
