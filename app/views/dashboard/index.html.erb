@@ -1,13 +1,43 @@
-<h1>Dashboard</h1>
+<div class="row">
+<div class="page-header">
+<h1>Dashboard</h1><br>
+<h2>Tasks </h2>
+</div><!-- pageheader ends -->
+</div> <!-- row ends -->
+<hr>
 
-<h2>Listing Tasks</h2>
-
-<%if !@task.nil?%>
-<ul>
-<%@tasks.each do |task|%>
-	<li><%=link_to task.title, task_path(task.id)%> - <%=task.status%> - <%=task.due_date%> </li>
+<div class="row">
+<%if !@tasks.nil?%>
+<table class="table table-bordered table-hover">
+	<thead>
+		<tr>
+			<th>Sl No</th>
+			<th>Title</th>
+			<th>Task Type</th>
+			<th>Task Category</th>
+			<th>Property Name</th>
+			<th>Task Due Date</th>
+			<th>Status </th>
+			<th>Priority </th>
+		</tr>
+	</thead>
+	<tbody>
+		
+			<% @tasks.each_with_index do |task,index|%>
+		<tr>
+			<td><%=index + 1%></td>
+			<td><%=task.title%></td>
+			<td><%=task.task_type.try(:name)%></td>
+			<td><%=task.task_category.try(:name)%></td>
+			<td><%=task.property.name%></td>
+			<td><%=task.due_date%></td>
+			<td><%=task.status%></td>
+			<td><%=task.priority%></td>
+		</tr>
+		<%end%>
+		
+	</tbody>
+</table>
+</div>
+</div> <!-- table row ends -->
 <%end%>
-</ul>
-
-<%end%>
-
