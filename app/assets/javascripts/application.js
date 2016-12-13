@@ -12,5 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+// require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+    $('#contractsTable').DataTable();
+    $('#propertiesTable').DataTable();
+    $('#usersTable').DataTable();
+    $('#paymentsTable').DataTable();
+
+    $('#payment_description_id').chosen();
+});
