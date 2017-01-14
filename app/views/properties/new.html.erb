@@ -1,56 +1,17 @@
-<h2>Add New Property</h2>
-
-<%= form_for @property do |f|%>
-
-	<%=f.label :name%><br>
-	<%=f.text_field :name%><br>
-
-	<%=f.label :property_type%><br>
-	<%=f.radio_button :property_type, "residential"%>  Residential </t>
-	<%=f.radio_button :property_type, "commercial"%>  Commercial  <br>
-
-	<%=f.label :property_type%><br>
-	<%=f.select :property_type, ["residential","commercial"], prompt:"Select Property Type"%>
-
-	<%=f.hidden_field :owner_id, value: current_user.id%><br>
-
-	<%=f.label :built_up_area%><br>
-	<%=f.text_field :built_up_area%><br>
-
-	<%=f.label :is_available%><br>
-	<%=f.radio_button :is_available, "true"%> Yes </t>
-	<%=f.radio_button :is_available, "false"%> No <br>
+<div class="row">
+	<div class="page-header">
+		<h2>Add New Property</h2>
+	</div>
 	
-	<%=f.label :property_reserve%><br>
-	<%=f.number_field :property_reserve%><br>
+	<div class="col-md-8">
 
-	<%=f.label :description%><br>
-	<%=f.text_area :description%><br>
+		<%=render 'form'%>
 
-	<%=f.collection_select :country_id, Country.all, :id, :name %><br>
+	</div>	
 
-	<%=f.collection_select :state_id, State.all, :id, :name %><br>
+</div> <!-- row ends -->
 
-	<%=f.collection_select :city_id, City.all, :id, :name %><br>
 
-	<%=f.label :address%><br>
-	<%=f.text_area :address%><br>
-
-	<%=f.label :water_bill_details%><br>
-	<%=f.text_field :water_bill_details%><br>
-
-	<%=f.label :electricity_bill_details%><br>
-	<%=f.text_field :electricity_bill_details%><br>
-
-	<%=f.label :documents%><br>
-	<%=f.file_field :documents , multiple: true %><br>
-
-	<%=f.label :pictures%><br>
-	<%=f.file_field :pictures , multiple: true %><br>
-
-	<%= f.submit "Add Property"%>
-
-<%end%>	
 
 
 

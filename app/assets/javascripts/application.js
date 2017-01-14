@@ -21,5 +21,11 @@ $(document).ready(function(){
     $('#usersTable').DataTable();
     $('#paymentsTable').DataTable();
 
-    $('#payment_description_id').chosen();
+    $('#payments_paymentDescription_id').chosen();
+    $('#contract_property_id').chosen();
+    $('#contract_tenant_id').chosen();
+    $('#property_country_id').chosen();
+    $('#property_state_id').chosen();
+    $('#property_city_id').chosen();
+
 });

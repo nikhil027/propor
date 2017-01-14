@@ -1,0 +1,22 @@
+<script>
+    $(document).ready(function() {
+        $('#calendar').fullCalendar({
+            defaultDate: '<%= Date.today.strftime("%Y-%m-%d") %>',
+            eventLimit: true, // allow "more" link when too many events
+            events: [
+                <% @tasks.each do |task| %>
+                {
+                    title: "<%= task.title %>",
+                    start: "<%= task.due_date.strftime("%Y-%m-%d") %>",
+                },
+                <% end %>
+                <% @contracts.each do |contract|%>
+                {
+                    title:"Contract for renewal <%=contract.property.name%>",
+                    start: "<%= contract.end_date.strftime("%Y-%m-%d") %>" 
+                },
+                <%end%>
+            ]
+        });
+    });
+</script>

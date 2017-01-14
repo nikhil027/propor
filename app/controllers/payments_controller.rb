@@ -5,7 +5,8 @@ class PaymentsController < ApplicationController
   # GET /payments.json
   def index
     #@payments = Payment.all
-    @contracts = current_user.contracts
+    @contracts = Contract.where('user_id = ? OR tenant_id = ?',current_user.id,current_user.id)
+    @payment= Payment.new
   end
 
   # GET /payments/1
@@ -70,6 +71,6 @@ class PaymentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def payment_params
-      params.require(:payment).permit(:reference_number, :payment_date, :contract_id, :payment_option, :payment_description, :amount)
+      params.require(:payment).permit(:reference_number, :payment_date, :contract_id, :payment_option_id, :payment_description_id, :amount)
     end
 end

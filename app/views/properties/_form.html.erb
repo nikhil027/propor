@@ -1,0 +1,71 @@
+<%= form_for @property do |f|%>
+
+	<div class="form-group">
+	<%=f.label :name%><br>
+	<%=f.text_field :name,class:"form-control"%><br>
+	</div>
+
+	
+	<%=f.label :property_type%><br>
+	<%=f.radio_button :property_type, "residential"%>  Residential <br>
+	<%=f.radio_button :property_type, "commercial"%>  Commercial  <br>
+	
+
+	
+	<%=f.hidden_field :owner_id, value: current_user.id,class:"form-control"%><br>
+
+	<div class="form-group">
+	<%=f.label :built_up_area%><br>
+	<%=f.text_field :built_up_area,class:"form-control"%><br>
+	</div>
+
+	<div class="form-group">
+	<%=f.label :is_available%><br>
+	<%=f.radio_button :is_available, "true"%> Yes </t>
+	<%=f.radio_button :is_available, "false"%> No <br>
+	</div>
+
+	<div class="form-group">	
+	<%=f.label :property_reserve%><br>
+	<%=f.number_field :property_reserve,class:"form-control"%><br>
+	</div>
+
+	<div class="form-group">
+	<%=f.label :description%><br>
+	<%=f.text_area :description,class:"form-control"%><br>
+	</div>
+
+	<div class="form-group">
+	<%=f.label :country_id%>
+	<%=f.collection_select :country_id, Country.all, :id, :name,{prompt:"Select Country"},{class:"form-control"} %><br>
+	</div>
+
+	<div class="form-group">
+	<%=f.label :state_id%>
+	<%=f.collection_select :state_id, State.all, :id, :name,{prompt:"Select State"},{class:"form-control"} %><br>
+	</div>
+
+	<div class="form-group">
+	<%=f.label :city_id%>
+	<%=f.collection_select :city_id, City.all, :id, :name ,{prompt:"Select City"} ,{class:"form-control"}%><br>
+	</div>
+
+	<div class="form-group">
+	<%=f.label :address%><br>
+	<%=f.text_area :address,class:"form-control"%><br>
+	</div>
+
+	<div class="form-group">
+	<%=f.label :water_bill_details%><br>
+	<%=f.text_field :water_bill_details,class:"form-control"%><br>
+	</div>
+
+	<div class="form-group">
+	<%=f.label :electricity_bill_details%><br>
+	<%=f.text_field :electricity_bill_details,class:"form-control"%><br>
+	</div>
+
+
+	<%= f.submit "Add Property", class:"btn btn-success"%>
+
+<%end%>	
